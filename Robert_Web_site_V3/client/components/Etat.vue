@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="container">
     	<nav>
       <ul>
         <li><router-link to="/etat">Etat</router-link></li>
          <li><router-link to="/conseil">Conseil</router-link></li>      
       </ul>
     </nav>
-     <div id="badg">
-        <h1>Hauts faits</h1>
+     <div class="container p-3 my-3 bg-dark text-white" id="badg">
+        <h3>Hauts faits</h3>
         <!-- liste d'image qui sont les badges -->
        <ul v-for="badge in badges">
 
