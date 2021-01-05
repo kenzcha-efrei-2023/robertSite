@@ -1,0 +1,191 @@
+* {
+    box-sizing: border-box;
+    /*le padding et la bordure de tout les éléments du fichier n'augmentent plus leurs largeur.*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    /*IMPORTANT  ! */
+    margin: 0;
+    background:  rgb(238, 238, 238);
+}
+
+header {
+    background:  rgb(238, 238, 238);
+    padding: 25px;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#logo {
+    margin-bottom: 25px;
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div {
+    display: flex;
+    margin: 5px;
+}
+
+input,
+select {
+    display: flex;
+    flex: 1;
+    padding: 3px;
+    margin: 3px
+}
+
+
+/*l'élément * influe sur la totalité de la page*/
+
+button {
+     background: none;
+    border: .3pt solid rgba(184, 140, 93, 0.7);
+    text-transform: uppercase !important;
+    font-size: 12px !important;
+    letter-spacing: 2px;
+    padding: 18px 36px;
+    text-transform: uppercase;
+    
+}
+
+input {
+    border: none;
+}
+
+button:hover {
+    background-color: rgba(184, 140, 93, 0.7);
+}
+
+input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid #aaa;
+    margin: 6px;
+    padding: 6px;
+}
+
+form {
+    position: sticky;
+    top: 0px;
+}
+
+form,
+main {
+    box-shadow: 5px 5px 5px rgb(66, 66, 66);
+    padding: 10px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+    overflow-x: auto;
+}
+
+div.inputs {
+    flex: 1 200px;
+}
+
+input:valid {
+    border-bottom: solid 2px gray;
+}
+
+input:invalid {
+    border-bottom: 2px solid red;
+    caret-color: red;
+}
+
+.tableau {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 5px;
+    min-width: 600px;
+}
+
+td,
+th {
+    width: 25%;
+    text-align: center;
+    padding: 5px;
+}
+
+tr {
+    border-bottom: solid black;
+}
+
+tr:last-child {
+    border: none;
+}
+
+tr:first-child {
+    border-bottom: solid black;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+
+/*Enlève la bordure bleu lorsqu'on clic sur l'élément input (comme ca on peut mieux voir le caret ;) */
+
+
+
+button:hover {
+    background-color: #d3ae87;
+}
+
+nav {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+nav #menu {
+    margin-left: auto
+}
+
+#utilisateurs,
+#taches {
+    box-shadow: none;
+    border: none;
+    padding: 10px;
+}
+
+p {
+    font-size: xx-large;
+}
+
+#deco{
+    background: none;
+    border: .3pt solid rgba(184, 140, 93, 0.7);
+    text-transform: uppercase !important;
+    font-size: 12px !important;
+    letter-spacing: 2px;
+    padding: 18px 36px;
+    text-transform: uppercase;
+     display: block;
+     margin-left: 82%;
+}
+
+#deco:hover{
+     background-color: #d3ae87;
+}
+
+h2 {
+    color: #d3ae87;
+}
