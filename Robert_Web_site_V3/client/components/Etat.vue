@@ -1,10 +1,16 @@
 <template>
   <div class="pouet">
 
-    	<nav>
-      <ul>
+    <nav class="nav">
+
+            <span id="brand">
+                <img src="Logo.png" width="70" height="70">
+                    <a href="index.html">Robert</a>
+              </span>
+
+      <ul class="oui">
         <li><router-link to="/etat">Etat</router-link></li>
-         <li><router-link to="/conseil">Conseil</router-link></li>      
+        <li><router-link to="/conseil">Conseil</router-link></li>
       </ul>
     </nav>
      <div class="p-5 bg-dark text-white" id="badg">
@@ -16,6 +22,7 @@
           <h3>Hauts faits</h3>
           <br>
           <br>
+          <p>Ici vous avez accès aux récompenses que vous avez débloquées !</p>
 
           <!-- liste d'image qui sont les badges -->
           <div class="mx-auto d-flex flex-row ">
@@ -36,6 +43,7 @@
           <h3>Etat</h3>
         <br>
         <br>
+        <p>Consultez le niveau d'eau en temps réel et l'état de Robert par jour !</p>
         <br>
         <br>
           <div class="row">
@@ -65,13 +73,13 @@
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-1 0A7 7 0 1 0 1 8a7 7 0 0 0 14 0z"/>
                     </svg>
                   </button>
-                  <button class="btn btn-warning" disabled>
+                  <button class="btn btn-outline-warning" disabled>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-neutral" viewBox="0 0 16 16">
                       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                       <path d="M4 10.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5zm3-4C7 5.672 6.552 5 6 5s-1 .672-1 1.5S5.448 8 6 8s1-.672 1-1.5zm4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5S9.448 8 10 8s1-.672 1-1.5z"/>
                     </svg>
                   </button>
-                  <button class="btn btn-danger" disabled>
+                  <button class="btn btn-outline-danger" disabled>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-dizzy" viewBox="0 0 16 16">
                       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                       <path d="M9.146 5.146a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zm-5 0a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 1 1 .708.708l-.647.646.647.646a.5.5 0 1 1-.708.708L5.5 7.207l-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zM10 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
@@ -87,7 +95,7 @@
               <div style="padding-bottom: 10%">
                 Niveau d'eau
               </div>
-              <div class="progress vertical-progressbar" style="width:150px;height:100px;margin-left: 30%">
+              <div class="progress vertical-progressbar" style="width:150px;height:100px;">
                 <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
@@ -153,10 +161,68 @@ module.exports = {
 </script>
 
 <style>
+.nav {
+  width: 100%;
+  height: 84px;
+  position: fixed;
+  z-index: 2;
+  background-color: #161616;
+}
+
+
+
+.nav #brand {
+  float: left;
+  display: block;
+  margin-left: 40px;
+  line-height: 80px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.nav #brand a {
+  color: #fff;
+  font-family: Poppins !important;
+  transition: all 500ms ease-out;
+}
+
+.nav #brand a:hover {
+  text-decoration: none;
+}
+
+.nav .oui {
+  margin-left: 260px;
+  background-color: #161616;
+
+}
+
+.nav .oui li {
+  padding-left: 70px;
+  display: inline-block;
+  font-weight: lighter !important;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 80px;
+  position: relative;
+  transition: all 500ms ease-out;
+
+}
+
+.nav .oui li a {
+  font-family: Poppins !important;
+  color: rgb(156, 156, 156);
+  transition: all 500ms ease-out;
+}
+
+.nav .oui li a:hover {
+  text-decoration: none;
+  color: #fff;
+  transition: all 500ms ease-out;
+}
 .vertical-progressbar{
-  -ms-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  margin-left: auto;
+  margin-right: auto;
 }
 .pouet{
   font-size: 20px;
