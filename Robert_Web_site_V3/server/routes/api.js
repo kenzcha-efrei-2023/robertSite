@@ -48,7 +48,7 @@ router.post('/login', async(req, res) => {
     // alors on le crée
     const user = result.rows[0]
 
-    if (await bcrypt.compare(password, user.password)) {
+    if (await bcrypt.compare(password, user.pswd)) {
         // alors connecter l'utilisateur
         req.session.userId = user.id
         res.json({
@@ -108,7 +108,7 @@ router.post('/register', async(req, res) => {
         console.log("Création de la table car elle n'existe pas !!")
             // creation de la table
         const liste_tables = await client.query({
-            text: 'CREATE TABLE users (id SERIAL, pseudo TEXT, email TEXT, password TEXT, PRIMARY KEY (id))'
+            text: 'CREATE TABLE users (id SERIAL, pseudo TEXT, email TEXT, pswd TEXT, PRIMARY KEY (id))'
         })
 
 
@@ -137,7 +137,7 @@ router.post('/register', async(req, res) => {
     const hash = await bcrypt.hash(password, 10)
 
     await client.query({
-        text: `INSERT INTO users(pseudo, email, password) VALUES ($1, $2, $3)`,
+        text: `INSERT INTO users(pseudo, email, pswd) VALUES ($1, $2, $3)`,
         values: [pseudo, email, hash]
     })
     res.send('ok')
