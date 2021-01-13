@@ -153,10 +153,14 @@ module.exports = {
   
   data () {
     return {
-      badges_paths : ["../Assets/bois.png","../Assets/amateur.png","../Assets/apprenti.png","../Assets/connaisseur.png","../Assets/fleuriste.png","../Assets/jardinier.png","../Assets/ami_des_plantes.png","../Assets/compagnon_de_robert.png"],
-      badges : [1,2,3,4,5,6,7],
+      badges_paths: ["../Assets/bois.png", "../Assets/amateur.png", "../Assets/apprenti.png", "../Assets/connaisseur.png", "../Assets/fleuriste.png", "../Assets/jardinier.png", "../Assets/ami_des_plantes.png", "../Assets/compagnon_de_robert.png"],
+      badges: [1, 2, 3, 4, 5, 6, 7],
     }
+  },
+  async mounted(){
+    this.badges = await axios.get('/api/trophee').data
   }
+
 }
 </script>
 

@@ -82,7 +82,7 @@ module.exports = {
         password: this.password		
       })
     
-    location.replace('http://localhost:3000/#/profil');
+    location.replace('http://localhost:3000/#/etat');
 	 
     }
   }
