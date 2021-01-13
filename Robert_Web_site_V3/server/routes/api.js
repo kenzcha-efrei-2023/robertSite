@@ -149,6 +149,7 @@ router.post('/register', async(req, res) => {
 router.get('/profil', async(req, res) => {
     console.log(req.session.userId)
     if (req.session.userId === -1) {
+        console.log("test")
         res.status(401).send({ message: 'Vous ne pouvez pas accéder à votre profil car vous n\'êtes pas connecté' })
         return
     }
