@@ -67,6 +67,19 @@ router.post('/login', async(req, res) => {
     req.session.profil = new Profil()
 })
 
+router.post('/etat', async (req, res) =>{
+    const input =
+    {
+        date : req.body.date
+    }
+    let info = await client.query({
+        text: `SELECT * FROM logjour WHERE dat = $1`,
+        values: [input.date]
+    })
+    res.json(info.rows)
+})
+
+
 router.post('/register', async(req, res) => {
     const pseudo = req.body.pseudo
     const email = req.body.email
