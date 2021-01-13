@@ -23,7 +23,7 @@
                                 </td>
                                     
                                 <td>
-                                   <input v-model="email" placeholder="email">
+                                   <input v-model="email" placeholder="email" id="mail">
                                 </td>
                             </tr>
                            
@@ -34,7 +34,7 @@
                                     <label for="mdp">Mot de passe :</label>
                                 </td>
                                 <td>
-                                    <input type="password" v-model="password" placeholder="mot de passe">
+                                    <input type="password" v-model="password" placeholder="mot de passe" id="mdp">
                                 </td>
                             </tr>
                            

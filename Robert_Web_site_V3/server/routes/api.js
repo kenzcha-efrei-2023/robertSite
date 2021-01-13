@@ -50,9 +50,8 @@ router.post('/login', async(req, res) => {
 
     if (await bcrypt.compare(password, user.pswd)) {
         // alors connecter l'utilisateur
-        req.session.userId = user.id
+        req.session.userId = user.email
         res.json({
-            id: user.id,
             email: user.email
         })
         return
@@ -164,7 +163,7 @@ router.get('/profil', async(req, res) => {
 router.get('/me', async(req, res) => {
 
     let info = await client.query({
-        text: `SELECT * FROM users WHERE id = $1`,
+        text: `SELECT * FROM users WHERE email= $1`,
         values: [req.session.userId]
     })
     if (info.rows.length === 0) {
