@@ -66,16 +66,23 @@ router.post('/login', async(req, res) => {
     req.session.profil = new Profil()
 })
 
-router.post('/etat', async (req, res) =>{
-    const input =
-    {
-        date : req.body.date
-    }
+router.get('/trophee', async (req, res) =>{
     let info = await client.query({
-        text: `SELECT * FROM logjour WHERE dat = $1`,
-        values: [input.date]
+        text: `SELECT * FROM streak order by val desc limit 1`
     })
-    res.json(info.rows)
+    info = info.rows
+    if (info.length === 0){
+        res.json([0,0,0,0,0,0,0])
+        return
+    }
+    res.json([info[0].val >= 7 ? 1 : 0,
+        info[0].val >= 14 ? 2 : 0,
+        info[0].val >= 30 ? 3 : 0,
+        info[0].val >= 90 ? 4 : 0,
+        info[0].val >= 180 ? 5 : 0,
+        info[0].val >= 240 ? 6 : 0,
+        info[0].val >= 360 ? 7 : 0
+    ])
 })
 
 
