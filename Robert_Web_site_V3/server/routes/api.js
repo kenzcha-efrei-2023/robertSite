@@ -4,10 +4,10 @@ const bcrypt = require('bcrypt')
 const { Client } = require('pg')
 
 const client = new Client({
-    user: 'postgres',
+    user: 'pi',
     host: 'localhost',
-    password: 'test',
-    database: 'Robert'
+    password: 'projetTransverse2020',
+    database: 'robert'
 })
 
 client.connect()
