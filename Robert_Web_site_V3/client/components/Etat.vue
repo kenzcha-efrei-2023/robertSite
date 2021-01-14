@@ -202,6 +202,7 @@ module.exports = {
   },
   methods : {
     async update(date){
+      console.log("wut")
       let dat = await axios.post('/api/etat',{date:date})
       dat = dat.data
       if (dat.length === 0){
@@ -217,9 +218,9 @@ module.exports = {
         dat = dat[0]
         this.feed = dat.feed;
         this.pet = dat.pet
-        if ((dat.feed || dat.pet) && dat.eau > 20)
+        if ((dat.feed || dat.pet) && dat.eau > 100)
           this.state = 1
-        else if (dat.feed || dat.pet || dat.eau > 20)
+        else if (dat.feed || dat.pet || dat.eau > 100)
           this.state = 2
         else
           this.state = 3
