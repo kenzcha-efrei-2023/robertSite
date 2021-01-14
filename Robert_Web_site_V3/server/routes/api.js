@@ -85,6 +85,14 @@ router.get('/trophee', async (req, res) =>{
     ])
 })
 
+router.post('/etat', async(req, res)=>{
+    const date = req.body.date
+    let info = await client.query({
+        text: `SELECT * FROM logjour where dat = $1`,
+        values : [date]
+    })
+    res.json(info.rows)
+})
 
 router.post('/register', async(req, res) => {
     const pseudo = req.body.pseudo
