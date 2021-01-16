@@ -24,6 +24,8 @@ class ArduinoRobert:
                     if (len(mesnow)!=0):
                         database.update_a_mesure_water(datab[1].split("'")[0],date,heure)
                         if datetime.now().hour == 20:
+                            if len(rob.get_day_log(datetime.now().date())) == 0 :#add water to day log once per day
+                                database.create_day_log(datetime.now().date())
                             database.modify_day_log_water(datetime.now().date(), datab[1].split("'")[0])
                     else:
                         database.inject_a_mesure(datab[1].split("'")[0],0,0,date,heure)
@@ -52,13 +54,10 @@ class ArduinoRobert:
             self.arduino.write([1, step])
         else :
             self.arduino.write([2, -step])
-        database.close()
+        database.close()    
 
-def streak():
-    
-
-arduino = ArduinoRobert('/dev/ttyACM0')
 if datetime.now().minute == 0:
+    arduino = ArduinoRobert('/dev/ttyACM0')
     arduino.get_mesures_from_arduino()
     if datetime.now().hour == 20:
         #update location
@@ -67,4 +66,7 @@ if datetime.now().minute == 0:
         #add 1 to streaks
         database.add_streak(datetime.now().date())
         database.close()
-        
+ 
+#uncomment to test
+#arduino = ArduinoRobert('/dev/ttyACM0')
+#arduino.get_mesures_from_arduino()        

@@ -60,7 +60,7 @@ class RobertDatabase:
         tab = self.cur.fetchall()[0]
         if len(tab) > 0 :
             wat = tab[0]
-            if str(tab[3]) == str(datetime.now().date()) : #and wat > 0:
+            if str(tab[3]) == str(datetime.now().date()) and wat > 100:
                 self.cur.execute("select * from logjour where dat='"+str(date)+"'")
                 tab = self.cur.fetchall()[0]
                 if len(tab)>0:

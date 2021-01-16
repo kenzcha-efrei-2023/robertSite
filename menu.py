@@ -103,10 +103,11 @@ def state_robert():
     me = rob.select_all_mesures_date(datetime.now().date())
     happy = False
     wat = True
+    print(dl)
     if len(dl) == 1 :
-        happy = dl[0][1] == 1
+        happy = dl[0][2] or dl[0][3]
     if len(me) :
-        wat = me[0][len(me[0] -1)] > 100
+        wat = me[0][len(me[0])-1] > 100
     idle(happy, wat)
     idle(happy, wat)
     idle(happy, wat)
