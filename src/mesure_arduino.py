@@ -1,5 +1,5 @@
 import serial
-from database import RobertDatabase
+from src.database import RobertDatabase
 from datetime import datetime
 
 class ArduinoRobert:

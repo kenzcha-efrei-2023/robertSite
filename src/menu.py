@@ -1,9 +1,10 @@
-from screen_operation import led_anim, display_image, turn_off_screen, boot_animation,shrug_animation,menu_back,menu_feed,menu_state,menu_pet,idle,eat,happy,pet,bye,sleepy
+from src.screen_operation import led_anim, turn_off_screen, boot_animation,shrug_animation,menu_back,menu_feed,menu_state,menu_pet,idle,eat, \
+    pet,bye
 from gfxhat import touch
 import time
-from database import RobertDatabase
+from src.database import RobertDatabase
 from datetime import datetime
-from terminal_prints import print_top, print_feed, print_notpet, print_notfeed, print_pet, print_bottom, print_state
+from src.terminal_prints import print_top, print_feed, print_notpet, print_notfeed, print_pet, print_bottom, print_state
 
 state_but = ['up', 'down', 'nada', 'nada', 'power', 'nada']
 cur_state = 'off'
